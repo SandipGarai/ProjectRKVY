@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agricultural Research & KYFKYC Work Plan</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #2c5530;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: #4CAF50;
+        }
+        
+        .hero {
+            background: linear-gradient(135deg, #4CAF50 0%, #2E7D32 100%);
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        .hero p {
+            font-size: 1.3em;
+            margin-bottom: 30px;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease-out 0.3s both;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+        
+        .btn {
+            padding: 15px 30px;
+            border: none;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            display: inline-block;
+        }
+        
+        .btn-primary {
+            background: white;
+            color: #4CAF50;
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        
+        .section {
+            padding: 80px 0;
+            background: white;
+            margin: 20px 0;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+        
+        .section-dark {
+            background: #f8f9fa;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5em;
+            color: #2c5530;
+            margin-bottom: 50px;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            width: 80px;
+            height: 4px;
+            background: #4CAF50;
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .project-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            border-left: 5px solid #4CAF50;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .project-card h3 {
+            color: #2c5530;
+            margin-bottom: 15px;
+            font-size: 1.4em;
+        }
+        
+        .phase-timeline {
+            position: relative;
+            padding: 50px 0;
+        }
+        
+        .timeline-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            width: 4px;
+            height: 100%;
+            background: #4CAF50;
+            position: absolute;
+            left: 30px;
+            top: 0;
+        }
+        
+        .timeline-marker {
+            width: 60px;
+            height: 60px;
+            background: #4CAF50;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            z-index: 10;
+            position: relative;
+        }
+        
+        .timeline-content {
+            margin-left: 40px;
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            flex: 1;
+        }
+        
+        .questionnaire {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 20px 0;
+        }
+        
+        .question-category {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            border-left: 4px solid #4CAF50;
+        }
+        
+        .question-category h4 {
+            color: #2c5530;
+            margin-bottom: 15px;
+        }
+        
+        .question-list {
+            list-style: none;
+            counter-reset: question-counter;
+        }
+        
+        .question-list li {
+            counter-increment: question-counter;
+            margin-bottom: 10px;
+            padding-left: 30px;
+            position: relative;
+        }
+        
+        .question-list li::before {
+            content: counter(question-counter);
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: #4CAF50;
+            color: white;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        
+        .kyfkyc-diagram {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px;
+            border-radius: 20px;
+            margin: 40px 0;
+            text-align: center;
+        }
+        
+        .village-network {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .village-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 25px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .central-hub {
+            grid-column: 2;
+            background: rgba(76, 175, 80, 0.2);
+            border: 2px solid #4CAF50;
+        }
+        
+        .tech-stack {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 40px 0;
+        }
+        
+        .tech-item {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .tech-item:hover {
+            transform: scale(1.05);
+        }
+        
+        .impact-metrics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .metric-card {
+            text-align: center;
+            padding: 30px;
+            background: linear-gradient(135deg, #4CAF50, #2E7D32);
+            color: white;
+            border-radius: 15px;
+        }
+        
+        .metric-number {
+            font-size: 3em;
+            font-weight: bold;
+            margin-bottom: 10px;
+            animation: countUp 2s ease-out;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes countUp {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            z-index: 2000;
+        }
+        
+        .modal-content {
+            background: white;
+            margin: 5% auto;
+            padding: 40px;
+            width: 90%;
+            max-width: 800px;
+            border-radius: 20px;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+        
+        .close {
+            float: right;
+            font-size: 30px;
+            font-weight: bold;
+            cursor: pointer;
+            color: #999;
+        }
+        
+        .close:hover {
+            color: #333;
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5em;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .village-network {
+                grid-template-columns: 1fr;
+            }
+            
+            .central-hub {
+                grid-column: 1;
+            }
+            
+            .timeline-item {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .timeline-marker {
+                margin-bottom: 20px;
+            }
+            
+            .timeline-content {
+                margin-left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">🌾 AgriTech Research</div>
+            <ul class="nav-links">
+                <li><a href="#overview">Overview</a></li>
+                <li><a href="#survey">Farmer Survey</a></li>
+                <li><a href="#kyfkyc">KYFKYC</a></li>
+                <li><a href="#implementation">Implementation</a></li>
+                <li><a href="#impact">Impact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>🌱 Agricultural Revolution</h1>
+            <p>Comprehensive Farmer Survey & Know Your Farmer, Know Your Customer Platform</p>
+            <div class="cta-buttons">
+                <a href="#survey" class="btn btn-primary">View Survey Plan</a>
+                <a href="#kyfkyc" class="btn btn-secondary">Explore KYFKYC</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="overview" class="section">
+        <div class="container">
+            <h2 class="section-title">🎯 Project Overview</h2>
+            <div class="project-grid">
+                <div class="project-card">
+                    <h3>📊 Comprehensive Farmer Survey</h3>
+                    <p>Systematic data collection addressing 14 critical research questions about farming practices, productivity, and market access across rural communities.</p>
+                    <button class="btn btn-primary" onclick="showSurveyDetails()">View Details</button>
+                </div>
+                <div class="project-card">
+                    <h3>🤝 KYFKYC E-Marketplace</h3>
+                    <p>Direct farmer-consumer platform eliminating middlemen, with smart recommendations and traceability features for sustainable agriculture.</p>
+                    <button class="btn btn-primary" onclick="showKYFKYCDetails()">View Details</button>
+                </div>
+                <div class="project-card">
+                    <h3>🌳 Agroforestry Integration</h3>
+                    <p>Silvipastoral and agrosilvopastoral recommendations using AI and remote sensing for sustainable land use optimization.</p>
+                    <button class="btn btn-primary" onclick="showAgroforestryDetails()">View Details</button>
+                </div>
+                <div class="project-card">
+                    <h3>🔬 ML-Powered Insights</h3>
+                    <p>Machine learning algorithms for crop disease prediction, yield optimization, and personalized farming recommendations.</p>
+                    <button class="btn btn-primary" onclick="showMLDetails()">View Details</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="survey" class="section section-dark">
+        <div class="container">
+            <h2 class="section-title">📋 Farmer Survey Implementation Plan</h2>
+            
+            <div class="phase-timeline">
+                <div class="timeline-item">
+                    <div class="timeline-marker">1</div>
+                    <div class="timeline-content">
+                        <h3>🎯 Planning & Preparation (Month 1)</h3>
+                        <ul>
+                            <li>Develop comprehensive questionnaire</li>
+                            <li>Train survey team and equipment setup</li>
+                            <li>Stratified multistage sampling design</li>
+                            <li>Obtain necessary permissions and approvals</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-marker">2</div>
+                    <div class="timeline-content">
+                        <h3>📊 Data Collection (Months 2-4)</h3>
+                        <ul>
+                            <li>Village visits and farmer interviews</li>
+                            <li>Drone photography with geo-tagging</li>
+                            <li>Soil and water sample collection</li>
+                            <li>Crop photography and documentation</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-marker">3</div>
+                    <div class="timeline-content">
+                        <h3>🔬 Analysis & Processing (Month 5)</h3>
+                        <ul>
+                            <li>Data validation and cleaning</li>
+                            <li>Satellite imagery analysis</li>
+                            <li>ML model training for recommendations</li>
+                            <li>Disease prediction algorithm development</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-marker">4</div>
+                    <div class="timeline-content">
+                        <h3>📈 Recommendations & Reporting (Month 6)</h3>
+                        <ul>
+                            <li>Farmer-specific recommendations</li>
+                            <li>Agroforestry suitability mapping</li>
+                            <li>Market demand analysis</li>
+                            <li>Policy recommendations report</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="questionnaire">
+                <h3>📝 Comprehensive Questionnaire Categories</h3>
+                
+                <div class="question-category">
+                    <h4>🌾 Land Utilization & Cropping Patterns</h4>
+                    <ul class="question-list">
+                        <li>Total land area owned/cultivated (acres)</li>
+                        <li>Current seasonal cropping pattern details</li>
+                        <li>Land utilization throughout the year</li>
+                        <li>Fallow land periods and reasons</li>
+                        <li>Crop rotation practices followed</li>
+                    </ul>
+                </div>
+                
+                <div class="question-category">
+                    <h4>🔬 Scientific Farming Practices</h4>
+                    <ul class="question-list">
+                        <li>Soil testing frequency and practices</li>
+                        <li>Fertilizer application methods and timing</li>
+                        <li>Seed selection and treatment processes</li>
+                        <li>Pest and disease management strategies</li>
+                        <li>Water management and irrigation systems</li>
+                    </ul>
+                </div>
+                
+                <div class="question-category">
+                    <h4>🌱 Sustainability & Climate Adaptation</h4>
+                    <ul class="question-list">
+                        <li>Awareness of sustainable agricultural practices</li>
+                        <li>Climate change impact on productivity</li>
+                        <li>Adaptation strategies implemented</li>
+                        <li>Organic farming knowledge and practices</li>
+                        <li>Interest in agroforestry adoption</li>
+                    </ul>
+                </div>
+                
+                <div class="question-category">
+                    <h4>💰 Economics & Market Access</h4>
+                    <ul class="question-list">
+                        <li>Annual income from agricultural activities</li>
+                        <li>Input costs and profit margins</li>
+                        <li>Marketing channels currently used</li>
+                        <li>Post-harvest losses and storage facilities</li>
+                        <li>Value addition opportunities explored</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="kyfkyc" class="section">
+        <div class="container">
+            <h2 class="section-title">🤝 Know Your Farmer, Know Your Customer</h2>
+            
+            <div class="kyfkyc-diagram">
+                <h3>🌐 Network Architecture</h3>
+                <p>Connecting 5 villages with 1 central hub and 4 substations</p>
+                
+                <div class="village-network">
+                    <div class="village-card">
+                        <h4>🏘️ Village 1</h4>
+                        <p>Products: P1(20), P2(30), P3(40)</p>
+                    </div>
+                    <div class="village-card central-hub">
+                        <h4>🏢 Central Hub</h4>
+                        <p>Coordination & Distribution</p>
+                    </div>
+                    <div class="village-card">
+                        <h4>🏘️ Village 2</h4>
+                        <p>Products: P1(40), P4(50), P5(60), P6(10)</p>
+                    </div>
+                    <div class="village-card">
+                        <h4>🏘️ Village 3</h4>
+                        <p>Products: P2(10), P4(20), P7(30)</p>
+                    </div>
+                    <div class="village-card">
+                        <h4>🏘️ Village 4</h4>
+                        <p>Products: P8(90), P9(15), P10(20)</p>
+                    </div>
+                    <div class="village-card">
+                        <h4>🏙️ Village 5</h4>
+                        <p>Consumer Hub (No Production)</p>
+                    </div>
+                </div>
+            </div>
+
+            <h3>⚙️ System Workflow</h3>
+            <div class="phase-timeline">
+                <div class="timeline-item">
+                    <div class="timeline-marker">📱</div>
+                    <div class="timeline-content">
+                        <h4>Daily Product Listing (Before 7 PM)</h4>
+                        <p>Farmers upload available products for next day delivery via mobile app or at substations</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-marker">🛒</div>
+                    <div class="timeline-content">
+                        <h4>Consumer Ordering (Before Sleep)</h4>
+                        <p>Consumers browse available products, see farmer details, and place orders with delivery preferences</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-marker">📦</div>
+                    <div class="timeline-content">
+                        <h4>Morning Preparation</h4>
+                        <p>Farmers receive order details, pack products with customer labels, and prepare for pickup</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-marker">🚚</div>
+                    <div class="timeline-content">
+                        <h4>Distribution & Delivery</h4>
+                        <p>Organized transportation network delivers fresh products directly to consumers</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="implementation" class="section section-dark">
+        <div class="container">
+            <h2 class="section-title">🛠️ Technology Implementation</h2>
+            
+            <div class="tech-stack">
+                <div class="tech-item">
+                    <h4>🤖 Machine Learning</h4>
+                    <p>Crop disease prediction, yield optimization, and personalized farming recommendations</p>
+                </div>
+                <div class="tech-item">
+                    <h4>🛰️ Remote Sensing</h4>
+                    <p>Satellite imagery analysis for crop monitoring and water source identification</p>
+                </div>
+                <div class="tech-item">
+                    <h4>🔗 Blockchain</h4>
+                    <p>Immutable data storage for traceability and secure transaction records</p>
+                </div>
+                <div class="tech-item">
+                    <h4>📱 Mobile App</h4>
+                    <p>User-friendly interface for farmers and consumers with offline capabilities</p>
+                </div>
+                <div class="tech-item">
+                    <h4>🌐 Web Platform</h4>
+                    <p>Comprehensive dashboard for data analysis and system management</p>
+                </div>
+                <div class="tech-item">
+                    <h4>📊 Analytics</h4>
+                    <p>Real-time market insights and demand prediction algorithms</p>
+                </div>
+            </div>
+
+            <h3>💼 Employment Generation</h3>
+            <div class="project-grid">
+                <div class="project-card">
+                    <h4>📊 Data Recording Staff</h4>
+                    <p>1-2 personnel per substation for daily data collection and order management</p>
+                </div>
+                <div class="project-card">
+                    <h4>🚚 Transportation Team</h4>
+                    <p>Drivers and loading staff for inter-village product distribution</p>
+                </div>
+                <div class="project-card">
+                    <h4>📦 Packaging Support</h4>
+                    <p>Local employment for product packaging and labeling services</p>
+                </div>
+                <div class="project-card">
+                    <h4>🔧 Technical Support</h4>
+                    <p>IT support staff for system maintenance and user assistance</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="impact" class="section">
+        <div class="container">
+            <h2 class="section-title">📈 Expected Impact</h2>
+            
+            <div class="impact-metrics">
+                <div class="metric-card">
+                    <div class="metric-number">25%</div>
+                    <p>Increase in Farmer Income</p>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-number">40%</div>
+                    <p>Reduction in Post-Harvest Losses</p>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-number">100+</div>
+                    <p>Villages Connected</p>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-number">500+</div>
+                    <p>Jobs Created</p>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-number">15%</div>
+                    <p>Cost Reduction for Consumers</p>
+                </div>
+            </div>
+
+            <h3>🎯 Long-term Objectives</h3>
+            <div class="project-grid">
+                <div class="project-card">
+                    <h4>🌱 Sustainable Agriculture</h4>
+                    <p>Promote organic farming and agroforestry practices for environmental sustainability</p>
+                </div>
+                <div class="project-card">
+                    <h4>🤝 Community Empowerment</h4>
+                    <p>Strengthen farmer-consumer relationships and build rural entrepreneurship</p>
+                </div>
+                <div class="project-card">
+                    <h4>📊 Data-Driven Decisions</h4>
+                    <p>Enable evidence-based policy making and agricultural planning</p>
+                </div>
+                <div class="project-card">
+                    <h4>🌐 Scalable Model</h4>
+                    <p>Replicate successful model across different regions and states</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modals for detailed information -->
+    <div id="surveyModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('surveyModal')">&times;</span>
+            <h2>📊 Detailed Survey Methodology</h2>
+            <h3>Sampling Strategy</h3>
+            <p><strong>Stratified Multistage Sampling:</strong></p>
+            <ul>
+                <li>Primary units: Districts in Jharkhand</li>
+                <li>Secondary units: Villages within selected districts</li>
+                <li>Final units: Individual farmers</li>
+                <li>Stratification by: Farm size, crop type, and geographic region</li>
+            </ul>
+            
+            <h3>Data Collection Tools</h3>
+            <ul>
+                <li><strong>Digital Questionnaire:</strong> Tablet-based survey with GPS coordinates</li>
+                <li><strong>Drone Photography:</strong> High-resolution aerial images with geo-tagging</li>
+                <li><strong>Soil Sampling Kit:</strong> Portable pH meters and testing equipment</li>
+                <li><strong>Weather Sensors:</strong> Micro-climate data recording devices</li>
+            </ul>
+            
+            <h3>Quality Assurance</h3>
+            <ul>
+                <li>10% random validation surveys</li>
+                <li>Real-time data validation algorithms</li>
+                <li>Expert verification of technical responses</li>
+                <li>Cross-reference with government databases</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="kyfkycModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('kyfkycModal')">&times;</span>
+            <h2>🤝 KYFKYC Platform Features</h2>
+            
+            <h3>Core Features</h3>
+            <ul>
+                <li><strong>Real-time Inventory:</strong> Live updates of available products</li>
+                <li><strong>Farmer Profiles:</strong> Detailed information about farming practices</li>
+                <li><strong>Quality Ratings:</strong> Consumer feedback and rating system</li>
+                <li><strong>Price Discovery:</strong> Transparent pricing with market comparisons</li>
+                <li><strong>Order Tracking:</strong> Real-time delivery status updates</li>
+                <li><strong>Payment Gateway:</strong> Secure digital payment options</li>
+            </ul>
+            
+            <h3>Advanced Analytics</h3>
+            <ul>
+                <li><strong>Demand Forecasting:</strong> Predict market demand patterns</li>
+                <li><strong>Supply Optimization:</strong> Match supply with local demand</li>
+                <li><strong>Seasonal Planning:</strong> Help farmers plan crop cycles</li>
+                <li><strong>Price Analytics:</strong> Historical price trends and predictions</li>
+            </ul>
+            
+            <h3>Sustainability Features</h3>
