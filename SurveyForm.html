@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Farmers’ Survey Form</title>
+<style>
+    body { font-family: Arial, sans-serif; background: #f8f9fa; padding: 20px; }
+    form { background: white; padding: 20px; border-radius: 8px; max-width: 900px; margin: auto; }
+    fieldset { border: 1px solid #ccc; padding: 15px; margin-bottom: 15px; border-radius: 6px; }
+    legend { font-weight: bold; }
+    label { display: block; margin-top: 10px; }
+    input, select, textarea { width: 100%; padding: 8px; margin-top: 4px; border: 1px solid #ccc; border-radius: 4px; }
+    button { background: #27ae60; color: white; border: none; padding: 10px 15px; cursor: pointer; }
+    button:hover { background: #1e8449; }
+</style>
+</head>
+<body>
+
+<h1>Farmers’ Survey & Decision Support System</h1>
+<form id="surveyForm">
+
+    <!-- SECTION A – Basic Farmer & Farm Profile -->
+    <fieldset>
+        <legend>Section A – Basic Farmer & Farm Profile</legend>
+        <label>Name: <input type="text" name="name" required></label>
+        <label>Age: <input type="number" name="age"></label>
+        <label>Gender:
+            <select name="gender">
+                <option>Male</option>
+                <option>Female</option>
+                <option>Other</option>
+            </select>
+        </label>
+        <label>Village: <input type="text" name="village"></label>
+        <label>District: <input type="text" name="district"></label>
+        <label>Contact Number: <input type="tel" name="phone"></label>
+        <label>Education Level:
+            <select name="education">
+                <option>No schooling</option>
+                <option>Primary</option>
+                <option>Secondary</option>
+                <option>Higher</option>
+            </select>
+        </label>
+        <label>Family members: <input type="number" name="family_size"></label>
+        <label>Working members in farming: <input type="number" name="working_members"></label>
+    </fieldset>
+
+    <!-- SECTION B – Land & Resource Information -->
+    <fieldset>
+        <legend>Section B – Land & Resource Information</legend>
+        <label>Total land owned (acres): <input type="number" step="0.01" name="land_total"></label>
+        <label>Land under cultivation this season (acres): <input type="number" step="0.01" name="land_cultivated"></label>
+        <label>Land type:
+            <select name="land_type">
+                <option>Irrigated</option>
+                <option>Rainfed</option>
+                <option>Mixed</option>
+            </select>
+        </label>
+        <label>Soil type: <input type="text" name="soil_type"></label>
+        <label>Water sources:
+            <select name="water_source" multiple>
+                <option>Well</option>
+                <option>Borewell</option>
+                <option>Canal</option>
+                <option>River</option>
+                <option>Rainwater harvesting</option>
+                <option>Other</option>
+            </select>
+        </label>
+        <label>Electricity source:
+            <select name="electricity_source">
+                <option>Grid</option>
+                <option>Solar</option>
+                <option>Diesel</option>
+                <option>None</option>
+            </select>
+        </label>
+    </fieldset>
+
+    <!-- SECTION C – Current Season Farming Practices -->
+    <fieldset>
+        <legend>Section C – Current Season Farming Practices</legend>
+        <label>Crops/Livestock: <textarea name="crops"></textarea></label>
+        <label>Cropping pattern:
+            <select name="cropping_pattern">
+                <option>Monocropping</option>
+                <option>Intercropping</option>
+                <option>Mixed cropping</option>
+            </select>
+        </label>
+        <label>Seed source:
+            <select name="seed_source">
+                <option>Own saved seeds</option>
+                <option>Purchased locally</option>
+                <option>Government supply</option>
+                <option>Private company</option>
+            </select>
+        </label>
+        <label>Fertilizers used:
+            <select name="fertilizers">
+                <option>Organic</option>
+                <option>Chemical</option>
+                <option>Both</option>
+                <option>None</option>
+            </select>
+        </label>
+        <label>Pest/Disease management:
+            <select name="pest_management">
+                <option>Traditional</option>
+                <option>Chemical</option>
+                <option>Biological/organic</option>
+            </select>
+        </label>
+        <label>Machinery used: <textarea name="machinery"></textarea></label>
+    </fieldset>
+
+    <!-- SECTION D – Sustainable & Scientific Practices -->
+    <fieldset>
+        <legend>Section D – Sustainable & Scientific Practices</legend>
+        <label>Aware of soil health management? <select name="soil_health_awareness"><option>Yes</option><option>No</option></select></label>
+        <label>Soil tested in last 3 years? <select name="soil_tested"><option>Yes</option><option>No</option></select></label>
+        <label>Aware of sustainable agriculture? <select name="sustainable_awareness"><option>Yes</option><option>No</option></select></label>
+        <label>Practicing organic farming? <select name="organic_farming"><option>Yes</option><option>No</option></select></label>
+        <label>If No, reason: <textarea name="organic_farming_reason"></textarea></label>
+        <label>Water-saving methods used:
+            <select name="water_saving" multiple>
+                <option>Drip</option>
+                <option>Sprinkler</option>
+                <option>Mulching</option>
+                <option>None</option>
+            </select>
+        </label>
+    </fieldset>
+
+    <!-- SECTION E – Agroforestry -->
+    <fieldset>
+        <legend>Section E – Agroforestry & Land Use After Crops</legend>
+        <label>Grow trees with crops/livestock? <select name="agroforestry_practice"><option>Yes</option><option>No</option></select></label>
+        <label>If Yes, type of trees: <textarea name="tree_type"></textarea></label>
+        <label>Interest in agroforestry? <select name="agroforestry_interest"><option>Yes</option><option>No</option></select></label>
+        <label>Type suitable (observer note): <textarea name="agroforestry_type"></textarea></label>
+        <label>Land use after harvest: <textarea name="land_use_after"></textarea></label>
+    </fieldset>
+
+    <!-- SECTION F – Climate Change Impact -->
+    <fieldset>
+        <legend>Section F – Climate Change Impact</legend>
+        <label>Changes in rainfall? <select name="rainfall_change"><option>Yes</option><option>No</option></select></label>
+        <label>Changes in temperature affecting farming? <select name="temperature_change"><option>Yes</option><option>No</option></select></label>
+        <label>Extreme weather events recently? <select name="extreme_weather"><option>Yes</option><option>No</option></select></label>
+        <label>If Yes, details: <textarea name="weather_details"></textarea></label>
+    </fieldset>
+
+    <!-- SECTION G – Productivity & Profitability -->
+    <fieldset>
+        <legend>Section G – Productivity & Profitability</legend>
+        <label>Average yield per acre: <input type="text" name="yield_per_acre"></label>
+        <label>Selling price per unit: <input type="text" name="selling_price"></label>
+        <label>Average income last season: <input type="text" name="income_last_season"></label>
+        <label>Main cost components: <textarea name="cost_components"></textarea></label>
+        <label>Max profitability achieved? <select name="max_profitability"><option>Yes</option><option>No</option></select></label>
+        <label>If No, reason: <textarea name="profitability_reason"></textarea></label>
+    </fieldset>
+
+    <!-- SECTION H – Marketing -->
+    <fieldset>
+        <legend>Section H – Marketing & Market Access</legend>
+        <label>Where do you sell? <textarea name="selling_places"></textarea></label>
+        <label>Limitations in current channels: <textarea name="marketing_limitations"></textarea></label>
+        <label>Aware of nearby town demand? <select name="town_demand"><option>Yes</option><option>No</option></select></label>
+        <label>Willing to try KYFKYC direct sales? <select name="kyfkyc_interest"><option>Yes</option><option>No</option></select></label>
+        <label>Consumer preference should guide crops? <select name="consumer_guidance"><option>Yes</option><option>No</option></select></label>
+    </fieldset>
+
+    <!-- SECTION I – Diseases -->
+    <fieldset>
+        <legend>Section I – Crop & Livestock Diseases</legend>
+        <label>Common crop diseases: <textarea name="crop_diseases"></textarea></label>
+        <label>Common livestock diseases: <textarea name="livestock_diseases"></textarea></label>
+        <label>Frequency: <select name="disease_frequency"><option>Rare</option><option>Seasonal</option><option>Frequent</option></select></label>
+        <label>Disease diagnosis method: <textarea name="disease_diagnosis"></textarea></label>
+    </fieldset>
+
+    <!-- SECTION J – Support & Research -->
+    <fieldset>
+        <legend>Section J – Support & Research</legend>
+        <label>Received training from agri institutions? <select name="training_received"><option>Yes</option><option>No</option></select></label>
+        <label>Recommendations helpful? <select name="recommendation_helpful"><option>Yes</option><option>No</option></select></label>
+        <label>Additional support needed: <textarea name="support_needed"></textarea></label>
+    </fieldset>
+
+    <!-- SECTION K – Value Addition -->
+    <fieldset>
+        <legend>Section K – Value Addition Potential</legend>
+        <label>Produce suitable for value addition? <select name="value_addition"><option>Yes</option><option>No</option></select></label>
+        <label>If Yes, specify: <textarea name="value_addition_products"></textarea></label>
+        <label>Interested in processing facilities? <select name="processing_interest"><option>Yes</option><option>No</option></select></label>
+    </fieldset>
+
+    <!-- SECTION L – Observation Data -->
+    <fieldset>
+        <legend>Section L – Observation Data</legend>
+        <label>GPS Location: <input type="text" name="gps_location"></label>
+        <label>Geo-tagged photos taken? <select name="geo_photos"><option>Yes</option><option>No</option></select></label>
+        <label>Drone images taken? <select name="drone_images"><option>Yes</option><option>No</option></select></label>
+        <label>Satellite images acquired? <select name="satellite_images"><option>Yes</option><option>No</option></select></label>
+        <label>Soil sample collected? <select name="soil_sample"><option>Yes</option><option>No</option></select></label>
+    </fieldset>
+
+    <!-- SECTION M – Consent -->
+    <fieldset>
+        <legend>Section M – Consent</legend>
+        <label>Consent to use data? <select name="consent"><option>Yes</option><option>No</option></select></label>
+    </fieldset>
+
+    <button type="submit">Submit Survey</button>
+</form>
+
+<script>
+    const scriptURL = "https://script.google.com/macros/s/AKfycbzaA-v1rf0CyIk5eq11piSlaxy8RoA5Hm3CZMss5Z9K-T_arlLwosrM2c9F5uCq9bVOtA/exec"; // Your Google Apps Script Web App URL
+
+    document.getElementById("surveyForm").addEventListener("submit", e => {
+        e.preventDefault();
+        const formData = new FormData(e.target);
+        const formObject = {};
+        formData.forEach((value, key) => formObject[key] = value);
+
+        fetch(scriptURL, {
+            method: "POST",
+            body: JSON.stringify(formObject)
+        })
+        .then(response => alert("Survey submitted successfully!"))
+        .catch(error => alert("Error submitting form: " + error));
+    });
+</script>
+
+</body>
+</html>
