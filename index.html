@@ -392,6 +392,81 @@
             color: #333;
         }
         
+        /* Attractive Questionnaire CTA Button */
+        .questionnaire-cta {
+            position: relative;
+            display: inline-block;
+            padding: 20px 40px;
+            font-size: 18px;
+            font-weight: bold;
+            color: white;
+            background: linear-gradient(45deg, #4CAF50, #45a049, #4CAF50);
+            background-size: 200% 200%;
+            border: none;
+            border-radius: 50px;
+            text-decoration: none;
+            cursor: pointer;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(76, 175, 80, 0.4);
+            transition: all 0.3s ease;
+            animation: gradientShift 3s ease-in-out infinite, pulse 2s infinite;
+        }
+        
+        .questionnaire-cta:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(76, 175, 80, 0.6);
+            text-decoration: none;
+            color: white;
+        }
+        
+        .questionnaire-cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.6s;
+        }
+        
+        .questionnaire-cta:hover::before {
+            left: 100%;
+        }
+        
+        .pulse-ring {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            height: 100%;
+            border: 3px solid rgba(255, 255, 255, 0.6);
+            border-radius: 50px;
+            animation: pulseRing 2s infinite;
+        }
+        
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
+        }
+        
+        @keyframes pulseRing {
+            0% {
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: translate(-50%, -50%) scale(1.3);
+                opacity: 0;
+            }
+        }
+        
         @media (max-width: 768px) {
             .hero h1 {
                 font-size: 2.5em;
@@ -538,6 +613,15 @@
 
             <div class="questionnaire">
                 <h3>📝 Comprehensive Questionnaire Categories</h3>
+                
+                <!-- Attractive Blinking CTA Button -->
+                <div style="text-align: center; margin: 30px 0 40px 0;">
+                    <a href="https://sandipgarai.github.io/ProjectRKVY/SurveyForm.html" target="_blank" 
+                       class="questionnaire-cta">
+                        📋 Access Interactive Questionnaire
+                        <span class="pulse-ring"></span>
+                    </a>
+                </div>
                 
                 <div class="question-category">
                     <h4>🌾 Land Utilization & Cropping Patterns</h4>
@@ -765,7 +849,69 @@
     <div id="surveyModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal('surveyModal')">&times;</span>
-            <h2>📊 Detailed Survey Methodology</h2>
+            <h2>📊 Comprehensive Farmer Survey Implementation</h2>
+            
+            <div style="background: linear-gradient(135deg, #4CAF50, #2E7D32); color: white; padding: 20px; border-radius: 10px; margin-bottom: 20px; text-align: center;">
+                <h3>🔗 Interactive Questionnaire Available</h3>
+                <p>Complete digital survey form with 13 comprehensive sections</p>
+                <a href="https://sandipgarai.github.io/ProjectRKVY/SurveyForm.html" target="_blank" 
+                   style="display: inline-block; background: white; color: #4CAF50; padding: 10px 20px; border-radius: 20px; text-decoration: none; font-weight: bold; margin-top: 10px;">
+                   📋 Open Full Questionnaire Form
+                </a>
+            </div>
+            
+            <h3>📋 Survey Sections Overview</h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 15px; margin: 20px 0;">
+                <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; border-left: 4px solid #4CAF50;">
+                    <strong>Section A:</strong> Basic Farmer & Farm Profile<br>
+                    <small>Demographics, education, family structure</small>
+                </div>
+                <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; border-left: 4px solid #4CAF50;">
+                    <strong>Section B:</strong> Land & Resource Information<br>
+                    <small>Land area, soil type, water sources, electricity</small>
+                </div>
+                <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; border-left: 4px solid #4CAF50;">
+                    <strong>Section C:</strong> Current Season Farming<br>
+                    <small>Crops, cropping patterns, inputs, machinery</small>
+                </div>
+                <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; border-left: 4px solid #4CAF50;">
+                    <strong>Section D:</strong> Sustainable Practices<br>
+                    <small>Soil health, organic farming, water conservation</small>
+                </div>
+                <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; border-left: 4px solid #4CAF50;">
+                    <strong>Section E:</strong> Agroforestry & Land Use<br>
+                    <small>Tree cultivation, post-harvest land utilization</small>
+                </div>
+                <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; border-left: 4px solid #4CAF50;">
+                    <strong>Section F:</strong> Climate Change Impact<br>
+                    <small>Weather patterns, extreme events, adaptation</small>
+                </div>
+                <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; border-left: 4px solid #4CAF50;">
+                    <strong>Section G:</strong> Productivity & Profitability<br>
+                    <small>Yields, prices, income, cost components</small>
+                </div>
+                <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; border-left: 4px solid #4CAF50;">
+                    <strong>Section H:</strong> Marketing & Market Access<br>
+                    <small>Sales channels, limitations, KYFKYC adoption</small>
+                </div>
+                <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; border-left: 4px solid #4CAF50;">
+                    <strong>Section I:</strong> Disease Management<br>
+                    <small>Crop/livestock diseases, diagnosis methods</small>
+                </div>
+                <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; border-left: 4px solid #4CAF50;">
+                    <strong>Section J:</strong> Institutional Support<br>
+                    <small>Training received, research effectiveness</small>
+                </div>
+                <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; border-left: 4px solid #4CAF50;">
+                    <strong>Section K:</strong> Value Addition<br>
+                    <small>Processing potential, facility interest</small>
+                </div>
+                <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; border-left: 4px solid #4CAF50;">
+                    <strong>Section L:</strong> Field Observations<br>
+                    <small>GPS data, photographs, samples collected</small>
+                </div>
+            </div>
+            
             <h3>Sampling Strategy</h3>
             <p><strong>Stratified Multistage Sampling:</strong></p>
             <ul>
