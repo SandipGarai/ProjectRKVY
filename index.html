@@ -307,6 +307,18 @@
             margin: 40px 0;
         }
         
+        .blinking-link {
+            animation: blinker 1.2s linear infinite;
+            color: #ffeb3b;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        .blinking-link:hover {
+            text-decoration: underline;
+        }
+        @keyframes blinker {
+            50% { opacity: 0; }
+        }
         .tech-item {
             background: white;
             padding: 25px;
@@ -703,6 +715,13 @@
                         <h4>🏙️ Village 5</h4>
                         <p>Consumer Hub (No Production)</p>
                     </div>
+                </div>
+                <div style="text-align: center; margin-top: 30px;">
+                    <a href="https://sandipgarai.github.io/ProjectRKVY/KYFKYC.html" 
+                        target="_blank" 
+                        class="blinking-link">
+                        🌐 Farmer Connect Website
+                    </a>
                 </div>
             </div>
 
